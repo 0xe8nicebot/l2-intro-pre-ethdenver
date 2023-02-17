@@ -35,4 +35,10 @@ const config: HardhatUserConfig = {
   },
 };
 
+// set proxy
+const proxyUrl = 'http://127.0.0.1:7890';  
+const { ProxyAgent, setGlobalDispatcher } = require("undici");
+const proxyAgent = new ProxyAgent(proxyUrl);
+setGlobalDispatcher(proxyAgent);
+
 export default config;
